@@ -1,4 +1,5 @@
 import {test , expect} from '../fixtures/loginFixture'; 
+import ExcelUtil from '../utils/ExcelUtil.js';
 
 test.describe('OrangeHRM Login Tests', () => {
 
@@ -6,9 +7,12 @@ test.describe('OrangeHRM Login Tests', () => {
         await page.goto('/');
     });
 
-    test("Verify Login" , async ({loginPage}) => {
+    test("Verify Login" , async ({page , loginPage}) => {
         await loginPage.wait(5);
-        await loginPage.login('Admin', 'admin123');
+        const data = ExcelUtil.getRowData('./testData/Login.xlsx','Login',0);
+        await loginPage.login(data.username, data.password);
+        console.log('The title of the page is : >>>>:: '+await page.title());
+        await expect(page).toHaveTitle('OrangeHRM');
     }
     );
 
