@@ -26,9 +26,7 @@ export default class BasePage {
 
     // Wait for Element
     async waitForElement(locator) {
-        await locator.waitFor({
-            state: 'visible'
-        });
+        await locator.waitFor({state: 'visible'});
     }
 
     // Select Dropdown by Value
