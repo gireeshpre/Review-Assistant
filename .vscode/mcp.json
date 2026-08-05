@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "mcp-lambdatest": {
+      "type": "http",
+      "url": "https://mcp.lambdatest.com/mcp"
+    }
+  }
+}

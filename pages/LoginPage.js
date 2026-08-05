@@ -14,7 +14,7 @@ export default class LoginPage extends BasePage {
     }
 
     async enterUsername(username) {
-
+        
         await this.enterText(this.usernameTextbox, username);
         
     }
