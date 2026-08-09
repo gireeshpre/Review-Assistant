@@ -33,9 +33,7 @@ export default class LoginPage extends BasePage {
 
         // intentionally added bad code
 
-        await page.waitForTimeout(5000);
-        page.locator("//button[@type='submit']");
-        await page.fill('#username','Admin');
+       
 
     }
 }
