@@ -25,13 +25,14 @@ export default class LoginPage extends BasePage {
 
     async login(username, password) {
         await this.enterUsername(username);
-        await this.wait(2);
+       
         await this.enterPassword(password);
-        await this.wait(2);
+       
         await this.clickLoginButton();
-        await this.wait(5);
+       
 
         // intentionally added bad code
+        //  await this.wait(2);
 
        
 
