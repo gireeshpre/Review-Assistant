@@ -1,15 +1,12 @@
 import { test, expect } from '@playwright/test';
 
-test('AI PR practice', async ({ page }) => {
+test('should login successfully with valid credentials', async ({ page }) => {
+  await page.goto('https://www.saucedemo.com/');
 
-    await page.goto('https://www.saucedemo.com/');
+  await page.getByPlaceholder('Username').fill('standard_user');
+  await page.getByPlaceholder('Password').fill('secret_sauce');
 
-    await page.waitForTimeout(5000);
+  await page.getByRole('button', { name: /login/i }).click();
 
-    await page.locator('#user-name').fill('standard_user');
-
-    await page.locator('#password').fill('secret_sauce');
-
-    await page.locator('//input[@type="submit"]').click();
-
+  await expect(page).toHaveURL('/inventory.html');
 });
