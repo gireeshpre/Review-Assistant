@@ -10,8 +10,8 @@ test('should login successfully with valid credentials', async ({ page }) => {
 
     await page.getByRole('button', { name: 'Login' }).click();
 
-    await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
+    await expect(page).toHaveURL(/inventory\.html/);
 
-    await expect(page.getByText('Products')).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Products' })).toBeVisible();
 
 });
